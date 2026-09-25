@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sunday School Videos</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* =========================
+           PAGE BACKGROUND
+        ========================= */
+
+        body {
+            font-family: Arial, sans-serif;
+
+            /* Light cream background like your project */
+            background: #f3f0e8;
+
+            color: #333;
+
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #f3f0e8;
+
+            color: #e85b63;
+
+            padding: 30px 20px 20px;
+
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 17px;
+
+            color: #555;
+        }
+
+
+        /* =========================
+           BACK TO HOME BUTTON
+        ========================= */
+
+        .home-button-container {
+            width: 92%;
+            max-width: 1200px;
+
+            margin: 10px auto 25px;
+
+            text-align: right;
+        }
+
+        .home-button {
+            display: inline-block;
+
+            padding: 13px 25px;
+
+            background: #e85b63;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+
+            transition: 0.3s;
+        }
+
+        .home-button:hover {
+            background: #d94b54;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           MAIN VIDEO SECTION
+        ========================= */
+
+        .video-section {
+            width: 92%;
+
+            max-width: 1200px;
+
+            margin: 30px auto 50px;
+        }
+
+        .video-section h2 {
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            color: #e85b63;
+
+            font-size: 27px;
+        }
+
+
+        /* =========================
+           VIDEO GRID
+        ========================= */
+
+        .video-container {
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 25px;
+        }
+
+
+        /* =========================
+           VIDEO CARD
+        ========================= */
+
+        .video-card {
+            width: 100%;
+
+            background: #ffffff;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 18px rgba(0, 0, 0, 0.12);
+
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.18);
+        }
+
+
+        /* =========================
+           YOUTUBE VIDEO
+        ========================= */
+
+        .video-card iframe {
+            width: 100%;
+
+            height: 280px;
+
+            border: none;
+
+            display: block;
+        }
+
+
+        /* =========================
+           SONG TITLE
+        ========================= */
+
+        .video-title {
+            padding: 16px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            text-align: center;
+
+            color: #333;
+
+            background: #ffffff;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 50px;
+
+            background: #e85b63;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 20px;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .video-container {
+                grid-template-columns: 1fr;
+            }
+
+            .video-card iframe {
+                height: 230px;
+            }
+
+            header h1 {
+                font-size: 25px;
+            }
+
+            header p {
+                font-size: 15px;
+            }
+
+            .video-section h2 {
+                font-size: 22px;
+            }
+
+            .home-button-container {
+                text-align: center;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
+        <h1>📖 Sunday School Videos</h1>
+
+        <p>
+            🎵 Watch, Sing and Learn Bible Songs 🎵
+        </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         BACK TO HOME
+    ========================= -->
+
+    <div class="home-button-container">
+
+        <a href="index.html" class="home-button">
+            🏠 Back to Home
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================
+         VIDEO SECTION
+    ========================= -->
+
+    <section class="video-section">
+
+
+        <div class="video-container">
+
+
+            <!-- ================= VIDEO 1 ================= -->
+
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/bnaXhmPw0N8?si=VNdP6P0dqaZCQR6n&amp;start=9"
+                    title="Sunday School Song 1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-title">
+                    Naayaman Elisha Mata Vinnadu
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= VIDEO 2 ================= -->
+
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/UWPWaCunMAo?si=6DGffw1L6sAXfdBM&amp;controls=0"
+                    title="Sunday School Song 2"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-title">
+                    Oh Deva Manne Thesi
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= VIDEO 3 ================= -->
+
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/jWyLpt5DHDs?si=TQdYqk2zZPh5zroz&amp;start=26"
+                    title="Sunday School Song 3"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-title">
+                    Konda Medha Koche VellaMandhi Janamu
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= VIDEO 4 ================= -->
+
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/8yvX-yxncz4?si=KeVJtCDutlKOIPwl"
+                    title="Sunday School Song 4"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-title">
+                    Dari Chupisthadu Ra Devudu
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= VIDEO 5 ================= -->
+
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/tt8I0VajW10?si=BmhkTo7RLv4G2qtX&amp;controls=0"
+                    title="Sunday School Song 5"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-title">
+                    Caring Friendship
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= VIDEO 6 ================= -->
+
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/GnAa8ek5STE?si=uf40m_N7RRehAWKl&amp;controls=0"
+                    title="Sunday School Song 6"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-title">
+                    Avaginjantha Vishwasam
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= VIDEO 7 ================= -->
+
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/KsnaeelYLGs?si=tdAcefYpphhj5Low&amp;start=72"
+                    title="Sunday School Song 7"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-title">
+                    Bale Bale Samsonu
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= VIDEO 8 ================= -->
+
+            <div class="video-card">
+
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/7ULoGOae-cs?si=NZ-Msn5MWHWSSQDn&amp;controls=0&amp;start=11"
+                    title="Sunday School Song 8"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+
+                <div class="video-title">
+                    Whatsapp Facebook Yedena Kane
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        © 2026 Sunday School Kids
+
+        <br>
+
+        📖 Learn • 🎵 Sing • ❤️ Share
+
+    </footer>
+
+
+</body>
+
+</html>

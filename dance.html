@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sunday School Action Dance</title>
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #ffe29f,
+                #ffa99f,
+                #c7b8ff
+            );
+
+            min-height: 100vh;
+
+            text-align: center;
+
+            padding-bottom: 50px;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        header {
+            background: white;
+
+            padding: 18px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            box-shadow:
+                0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 25px;
+
+            font-weight: bold;
+
+            color: #ff6b6b;
+        }
+
+        nav {
+            display: flex;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+
+            color: #333;
+
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ff6b6b;
+        }
+
+
+        /* =========================
+           PAGE TITLE
+        ========================= */
+
+        .dance-header {
+            padding: 50px 20px 25px;
+        }
+
+        .dance-header h1 {
+            font-size: 42px;
+
+            color: #ff5c5c;
+
+            margin-bottom: 12px;
+        }
+
+        .dance-header p {
+            font-size: 20px;
+
+            color: #444;
+        }
+
+
+        /* =========================
+           MAIN BOX
+        ========================= */
+
+        .dance-container {
+            background: white;
+
+            width: 600px;
+
+            max-width: 92%;
+
+            margin: 20px auto;
+
+            padding: 35px;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =========================
+           SONG SELECT
+        ========================= */
+
+        select {
+            width: 100%;
+
+            padding: 15px;
+
+            border: 2px solid #ff8a65;
+
+            border-radius: 15px;
+
+            font-size: 17px;
+
+            margin-bottom: 30px;
+
+            background: white;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           SONG TITLE
+        ========================= */
+
+        #songTitle {
+            color: #ff6b6b;
+
+            font-size: 30px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           ACTION BOX
+        ========================= */
+
+        .action-box {
+            background: #fff4d6;
+
+            border-radius: 25px;
+
+            padding: 30px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .action-emoji {
+            font-size: 80px;
+
+            margin-bottom: 15px;
+
+            display: inline-block;
+
+            animation: dance 1s infinite;
+        }
+
+
+        /* =========================
+           DANCE ANIMATION
+        ========================= */
+
+        @keyframes dance {
+
+            0% {
+                transform: rotate(-10deg)
+                           translateY(0);
+            }
+
+            25% {
+                transform: rotate(10deg)
+                           translateY(-10px);
+            }
+
+            50% {
+                transform: rotate(-10deg)
+                           translateY(0);
+            }
+
+            75% {
+                transform: rotate(10deg)
+                           translateY(-10px);
+            }
+
+            100% {
+                transform: rotate(-10deg)
+                           translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           ACTION TEXT
+        ========================= */
+
+        #actionText {
+            font-size: 24px;
+
+            font-weight: bold;
+
+            color: #444;
+
+            min-height: 70px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        button {
+            border: none;
+
+            padding: 13px 22px;
+
+            margin: 7px;
+
+            border-radius: 25px;
+
+            background: #ff6b6b;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+
+            background: #ff5252;
+        }
+
+
+        .home-button {
+            background: #7c83fd;
+        }
+
+        .next-button {
+            background: #42b883;
+        }
+
+
+        /* =========================
+           STEP NUMBER
+        ========================= */
+
+        #stepNumber {
+            font-size: 18px;
+
+            color: #777;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           ACTION LIST
+        ========================= */
+
+        .actions-list {
+            margin-top: 25px;
+
+            text-align: left;
+
+            background: #f8f4ff;
+
+            padding: 20px;
+
+            border-radius: 20px;
+        }
+
+        .actions-list h3 {
+            color: #ff6b6b;
+
+            margin-bottom: 15px;
+
+            text-align: center;
+        }
+
+        .actions-list li {
+            margin: 12px 0;
+
+            font-size: 17px;
+
+            list-style: none;
+
+            padding: 10px;
+
+            background: white;
+
+            border-radius: 12px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 40px;
+
+            background: #333;
+
+            color: white;
+
+            padding: 25px;
+        }
+
+        footer p {
+            margin-top: 8px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .dance-header h1 {
+                font-size: 32px;
+            }
+
+            .dance-header p {
+                font-size: 17px;
+            }
+
+            .dance-container {
+                padding: 25px 18px;
+            }
+
+            #songTitle {
+                font-size: 25px;
+            }
+
+            .action-emoji {
+                font-size: 65px;
+            }
+
+            #actionText {
+                font-size: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            🌈 Sunday School
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="songs.html">
+                🎵 Songs
+            </a>
+
+            <a href="verses.html">
+                📖 Bible Verses
+            </a>
+
+            <a href="dance.html">
+                💃 Action Dance
+            </a>
+
+            <a href="video.html">
+                🎥 Videos
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         TITLE
+    ========================== -->
+
+    <section class="dance-header">
+
+        <h1>
+            💃 Action Dance 🎵
+        </h1>
+
+        <p>
+            Choose a song and let's dance together! 🌟
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         DANCE CONTAINER
+    ========================== -->
+
+    <div class="dance-container">
+
+
+        <!-- SONG SELECT -->
+
+        <select id="songSelect"
+                onchange="changeSong()">
+
+            <option value="0">
+                🌟 I'm Special, Very Special
+            </option>
+
+            <option value="1">
+                ❤️ Jesus Loves Me
+            </option>
+
+            <option value="2">
+                💡 This Little Light of Mine
+            </option>
+
+            <option value="3">
+                👏 If You're Happy and You Know It
+            </option>
+
+            <option value="4">
+                🙌 My God Is So Big
+            </option>
+
+        </select>
+
+
+        <!-- SONG TITLE -->
+
+        <h2 id="songTitle">
+            I'm Special, Very Special
+        </h2>
+
+
+        <!-- ACTION -->
+
+        <div class="action-box">
+
+            <div class="action-emoji"
+                 id="actionEmoji">
+
+                🌟
+
+            </div>
+
+            <div id="stepNumber">
+                Step 1
+            </div>
+
+            <div id="actionText">
+                Point to yourself ☝️
+            </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <button class="next-button"
+                onclick="nextAction()">
+
+            Next Action ➡️
+
+        </button>
+
+        <button onclick="repeatAction()">
+
+            🔄 Repeat
+
+        </button>
+
+
+        <!-- ALL ACTIONS -->
+
+        <div class="actions-list">
+
+            <h3>
+                🎶 Dance Actions
+            </h3>
+
+            <ul id="actionsList">
+
+                <li>☝️ Point to yourself</li>
+
+                <li>🙌 Raise both hands</li>
+
+                <li>👏 Clap your hands</li>
+
+                <li>💃 Turn around</li>
+
+                <li>😊 Smile</li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- HOME -->
+
+        <button class="home-button"
+                onclick="goHome()">
+
+            🏠 Back to Home
+
+        </button>
+
+
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>
+            🌈 Sunday School Kids
+        </h3>
+
+        <p>
+            Learn • Sing • Dance • Grow in God's Love ❤️
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           DANCE DATA
+        ========================= */
+
+        const danceSongs = [
+
+            {
+                title: "I'm Special, Very Special",
+                emoji: "🌟",
+
+                actions: [
+                    "☝️ Point to yourself",
+                    "🙌 Raise both hands",
+                    "👏 Clap your hands",
+                    "💃 Turn around",
+                    "😊 Smile"
+                ]
+            },
+
+
+            {
+                title: "Jesus Loves Me",
+                emoji: "❤️",
+
+                actions: [
+                    "❤️ Put your hands on your heart",
+                    "☝️ Point upward",
+                    "👏 Clap your hands",
+                    "🙌 Raise both hands",
+                    "💃 Move side to side"
+                ]
+            },
+
+
+            {
+                title: "This Little Light of Mine",
+                emoji: "💡",
+
+                actions: [
+                    "☝️ Raise one finger",
+                    "✨ Move your fingers",
+                    "🙌 Raise both hands",
+                    "👏 Clap your hands",
+                    "💃 Dance side to side"
+                ]
+            },
+
+
+            {
+                title: "If You're Happy and You Know It",
+                emoji: "👏",
+
+                actions: [
+                    "👏 Clap your hands",
+                    "👣 Stomp your feet",
+                    "🙌 Raise your hands",
+                    "💃 Turn around",
+                    "😊 Give a big smile"
+                ]
+            },
+
+
+            {
+                title: "My God Is So Big",
+                emoji: "🙌",
+
+                actions: [
+                    "🙌 Raise both hands high",
+                    "↔️ Stretch your arms wide",
+                    "❤️ Put hands on your heart",
+                    "👏 Clap your hands",
+                    "💃 Dance with joy"
+                ]
+            }
+
+        ];
+
+
+        /* =========================
+           CURRENT STEP
+        ========================= */
+
+        let currentSong = 0;
+
+        let currentAction = 0;
+
+
+        /* =========================
+           CHANGE SONG
+        ========================= */
+
+        function changeSong() {
+
+            const select =
+                document.getElementById("songSelect");
+
+            currentSong =
+                Number(select.value);
+
+            currentAction = 0;
+
+            showAction();
+
+        }
+
+
+        /* =========================
+           SHOW ACTION
+        ========================= */
+
+        function showAction() {
+
+            const song =
+                danceSongs[currentSong];
+
+            const action =
+                song.actions[currentAction];
+
+
+            document.getElementById("songTitle")
+                .innerText = song.title;
+
+
+            document.getElementById("actionEmoji")
+                .innerText = song.emoji;
+
+
+            document.getElementById("actionText")
+                .innerText = action;
+
+
+            document.getElementById("stepNumber")
+                .innerText =
+                "Step " +
+                (currentAction + 1) +
+                " of " +
+                song.actions.length;
+
+
+            updateActionsList();
+
+        }
+
+
+        /* =========================
+           NEXT ACTION
+        ========================= */
+
+        function nextAction() {
+
+            const song =
+                danceSongs[currentSong];
+
+            currentAction++;
+
+            if (
+                currentAction >=
+                song.actions.length
+            ) {
+
+                currentAction = 0;
+
+            }
+
+            showAction();
+
+        }
+
+
+        /* =========================
+           REPEAT ACTION
+        ========================= */
+
+        function repeatAction() {
+
+            const action =
+                danceSongs[currentSong]
+                .actions[currentAction];
+
+            document.getElementById("actionText")
+                .innerText = action;
+
+        }
+
+
+        /* =========================
+           UPDATE ACTION LIST
+        ========================= */
+
+        function updateActionsList() {
+
+            const list =
+                document.getElementById("actionsList");
+
+            list.innerHTML = "";
+
+            const actions =
+                danceSongs[currentSong].actions;
+
+
+            actions.forEach(function(action) {
+
+                const li =
+                    document.createElement("li");
+
+                li.innerText = action;
+
+                list.appendChild(li);
+
+            });
+
+        }
+
+
+        /* =========================
+           GO HOME
+        ========================= */
+
+        function goHome() {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+        /* =========================
+           START
+        ========================= */
+
+        showAction();
+
+    </script>
+
+
+</body>
+
+</html>

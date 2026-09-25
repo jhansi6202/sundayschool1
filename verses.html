@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sunday School Bible Verses</title>
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #ffe29f,
+                #ffa99f,
+                #c7b8ff
+            );
+
+            min-height: 100vh;
+
+            color: #333;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        header {
+            background: white;
+
+            padding: 18px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            box-shadow:
+                0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 25px;
+
+            font-weight: bold;
+
+            color: #ff6b6b;
+        }
+
+        nav {
+            display: flex;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+
+            color: #333;
+
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ff6b6b;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .verse-header {
+            text-align: center;
+
+            padding: 55px 20px 30px;
+        }
+
+        .verse-header h1 {
+            font-size: 42px;
+
+            color: #ff5c5c;
+
+            margin-bottom: 12px;
+        }
+
+        .verse-header p {
+            font-size: 20px;
+
+            color: #444;
+        }
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-box {
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        .search-box input {
+            width: 85%;
+
+            max-width: 600px;
+
+            padding: 15px 20px;
+
+            border: 2px solid #ff8a65;
+
+            border-radius: 30px;
+
+            font-size: 17px;
+
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #ff5c5c;
+        }
+
+
+        /* =========================
+           VERSES CONTAINER
+        ========================= */
+
+        .verses-container {
+            width: 90%;
+
+            max-width: 1100px;
+
+            margin: 0 auto 60px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 25px;
+        }
+
+
+        /* =========================
+           VERSE CARD
+        ========================= */
+
+        .verse-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 6px 20px rgba(0, 0, 0, 0.12);
+
+            transition: 0.3s;
+        }
+
+        .verse-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .verse-icon {
+            font-size: 50px;
+
+            margin-bottom: 15px;
+        }
+
+        .verse-card h2 {
+            color: #ff6b6b;
+
+            font-size: 22px;
+
+            margin-bottom: 15px;
+        }
+
+        .verse-text {
+            font-size: 19px;
+
+            line-height: 1.6;
+
+            margin-bottom: 15px;
+
+            font-weight: bold;
+        }
+
+        .reference {
+            color: #7c83fd;
+
+            font-size: 17px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .learn-button {
+            border: none;
+
+            padding: 11px 20px;
+
+            margin-top: 18px;
+
+            border-radius: 25px;
+
+            background: #ff6b6b;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .learn-button:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           MEMORY BOX
+        ========================= */
+
+        .memory-section {
+            width: 90%;
+
+            max-width: 800px;
+
+            margin: 0 auto 50px;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 30px;
+
+            text-align: center;
+
+            box-shadow:
+                0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .memory-section h2 {
+            color: #ff6b6b;
+
+            margin-bottom: 15px;
+        }
+
+        .memory-section p {
+            font-size: 18px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           HOME BUTTON
+        ========================= */
+
+        .home-button {
+            display: block;
+
+            margin: 0 auto 50px;
+
+            border: none;
+
+            padding: 13px 25px;
+
+            border-radius: 25px;
+
+            background: #7c83fd;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .home-button:hover {
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            background: #333;
+
+            color: white;
+        }
+
+        footer p {
+            margin-top: 8px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .verse-header h1 {
+                font-size: 32px;
+            }
+
+            .verse-header p {
+                font-size: 17px;
+            }
+
+            .verse-card {
+                padding: 25px 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            🌈 Sunday School
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="songs.html">
+                🎵 Songs
+            </a>
+
+            <a href="verses.html">
+                📖 Bible Verses
+            </a>
+
+            <a href="dance.html">
+                💃 Action Dance
+            </a>
+
+            <a href="video.html">
+                🎥 Videos
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+
+    <section class="verse-header">
+
+        <h1>
+            📖 Bible Verses
+        </h1>
+
+        <p>
+            Learn God's Word and keep it in your heart! ❤️
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         SEARCH
+    ========================== -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search Bible verse..."
+            onkeyup="searchVerses()">
+
+    </div>
+
+
+    <!-- =========================
+         VERSES
+    ========================== -->
+
+    <section class="verses-container"
+             id="versesContainer">
+    </section>
+
+
+    <!-- =========================
+         MEMORY SECTION
+    ========================== -->
+
+    <section class="memory-section">
+
+        <h2>
+            🧠 Memory Verse Challenge
+        </h2>
+
+        <p>
+            Read a verse three times, close your eyes,
+            and try to say it without looking! 🌟
+        </p>
+
+        <button
+            class="learn-button"
+            onclick="randomVerse()">
+
+            🎲 Give Me a Verse
+
+        </button>
+
+        <p
+            id="randomVerse"
+            style="margin-top:20px;">
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         HOME BUTTON
+    ========================== -->
+
+    <button
+        class="home-button"
+        onclick="goHome()">
+
+        🏠 Back to Home
+
+    </button>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>
+            🌈 Sunday School Kids
+        </h3>
+
+        <p>
+            Learn • Sing • Dance • Grow in God's Love ❤️
+        </p>
+
+        <p>
+            © 2026 Sunday School
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           BIBLE VERSE DATA
+        ========================= */
+
+        const verses = [
+
+            {
+                reference: "Matthew 19:14",
+                text: "Let the little children come to me."
+            },
+
+            {
+                reference: "Philippians 4:13",
+                text: "I can do all things through Christ who strengthens me."
+            },
+
+            {
+                reference: "Psalm 119:105",
+                text: "Your word is a lamp to my feet and a light to my path."
+            },
+
+            {
+                reference: "John 3:16",
+                text: "For God so loved the world that He gave His only Son."
+            },
+
+            {
+                reference: "Proverbs 3:5",
+                text: "Trust in the Lord with all your heart."
+            },
+
+            {
+                reference: "Psalm 23:1",
+                text: "The Lord is my shepherd; I shall not want."
+            },
+
+            {
+                reference: "Joshua 1:9",
+                text: "Be strong and courageous. Do not be afraid."
+            },
+
+            {
+                reference: "1 John 4:19",
+                text: "We love because He first loved us."
+            },
+
+            {
+                reference: "Psalm 136:1",
+                text: "Give thanks to the Lord, for He is good."
+            },
+
+            {
+                reference: "Ephesians 4:32",
+                text: "Be kind and compassionate to one another."
+            },
+
+            {
+                reference: "Proverbs 18:10",
+                text: "The name of the Lord is a strong tower."
+            },
+
+            {
+                reference: "Psalm 46:1",
+                text: "God is our refuge and strength."
+            }
+
+        ];
+
+
+        /* =========================
+           DISPLAY VERSES
+        ========================= */
+
+        function displayVerses(list) {
+
+            const container =
+                document.getElementById(
+                    "versesContainer"
+                );
+
+            container.innerHTML = "";
+
+
+            if (list.length === 0) {
+
+                container.innerHTML = `
+                    <div class="verse-card">
+                        <div class="verse-icon">
+                            🔍
+                        </div>
+
+                        <h2>
+                            No verse found
+                        </h2>
+
+                        <p class="verse-text">
+                            Try searching for another verse.
+                        </p>
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            list.forEach(function(verse) {
+
+                const card =
+                    document.createElement("div");
+
+                card.className = "verse-card";
+
+
+                card.innerHTML = `
+
+                    <div class="verse-icon">
+                        📖
+                    </div>
+
+                    <h2>
+                        ${verse.reference}
+                    </h2>
+
+                    <p class="verse-text">
+                        "${verse.text}"
+                    </p>
+
+                    <p class="reference">
+                        ❤️ God's Word
+                    </p>
+
+                `;
+
+
+                container.appendChild(card);
+
+            });
+
+        }
+
+
+        /* =========================
+           SEARCH VERSES
+        ========================= */
+
+        function searchVerses() {
+
+            const search =
+                document
+                .getElementById("searchInput")
+                .value
+                .toLowerCase();
+
+
+            const filtered =
+                verses.filter(function(verse) {
+
+                    return (
+                        verse.text
+                            .toLowerCase()
+                            .includes(search)
+
+                        ||
+
+                        verse.reference
+                            .toLowerCase()
+                            .includes(search)
+                    );
+
+                });
+
+
+            displayVerses(filtered);
+
+        }
+
+
+        /* =========================
+           RANDOM VERSE
+        ========================= */
+
+        function randomVerse() {
+
+            const randomIndex =
+                Math.floor(
+                    Math.random() * verses.length
+                );
+
+
+            const verse =
+                verses[randomIndex];
+
+
+            document
+                .getElementById("randomVerse")
+                .innerHTML =
+
+                `📖 "${verse.text}"<br><br>
+                 <strong>— ${verse.reference}</strong>`;
+
+        }
+
+
+        /* =========================
+           GO HOME
+        ========================= */
+
+        function goHome() {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+        /* =========================
+           LOAD VERSES
+        ========================= */
+
+        displayVerses(verses);
+
+    </script>
+
+
+</body>
+
+</html>

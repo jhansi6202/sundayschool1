@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sunday School Songs</title>
+
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        body {
+            font-family: Arial, sans-serif;
+
+            background-color: #fff4d6;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        h1 {
+            color: #ff6b6b;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           SONG SELECT BOX
+        ========================= */
+
+        .song-box {
+
+            background-color: white;
+
+            width: 500px;
+
+            max-width: 90%;
+
+            margin: 20px auto;
+
+            padding: 30px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 5px 15px #ccc;
+        }
+
+
+        select {
+
+            width: 90%;
+
+            padding: 14px;
+
+            border: 2px solid #ff8a65;
+
+            border-radius: 10px;
+
+            font-size: 17px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           SONG INFORMATION
+        ========================= */
+
+        .song {
+
+            background-color: #fff;
+
+            width: 500px;
+
+            max-width: 90%;
+
+            margin: 30px auto;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 5px 15px #ccc;
+        }
+
+
+        .song h2 {
+
+            color: #ff8a65;
+
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        button {
+
+            background-color: #ff6b6b;
+
+            color: white;
+
+            border: none;
+
+            padding: 12px 18px;
+
+            margin: 5px;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+
+        button:hover {
+
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           LYRICS
+        ========================= */
+
+        #lyrics {
+
+            display: none;
+
+            background-color: white;
+
+            max-width: 600px;
+
+            margin: 20px auto;
+
+            padding: 25px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 5px 15px #ccc;
+
+            text-align: left;
+
+            line-height: 1.8;
+        }
+
+
+        #lyrics h3 {
+
+            color: #ff8a65;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           HOME BUTTON
+        ========================= */
+
+        .home-button {
+
+            margin-top: 20px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         TITLE
+    ========================= -->
+
+    <h1>
+        🎵 Sunday School Songs 🎵
+    </h1>
+
+
+    <!-- =========================
+         SONG SELECTION
+    ========================= -->
+
+    <div class="song-box">
+
+        <h2>
+            Select a Song 🎶
+        </h2>
+
+
+        <select id="songSelect"
+                onchange="selectSong()">
+
+            <option value="">
+                -- Select a Song --
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- =========================
+         SELECTED SONG
+    ========================= -->
+
+    <div id="songContainer"></div>
+
+
+    <!-- =========================
+         LYRICS
+    ========================= -->
+
+    <div id="lyrics"></div>
+
+
+    <!-- =========================
+         BACK HOME
+    ========================= -->
+
+    <div class="home-button">
+
+        <button onclick="goHome()">
+            🏠 Back to Home
+        </button>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        /* =========================
+           SONG DATA
+        ========================= */
+
+        const songs = [
+
+            {
+                title: "Jesus Loves Me",
+
+                english:
+`Jesus loves me, this I know
+For the Bible tells me so
+Little ones to Him belong
+They are weak but He is strong`,
+
+                telugu:
+`యేసు నన్ను ప్రేమించును
+బైబిల్ చెప్పుచున్నది
+చిన్నవారు ఆయనవారు
+ఆయన బలవంతుడు`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "I Am Special Very Special",
+
+                english:
+`I am special
+Very special
+There is nobody else like me
+God made me
+God loves me
+I am special in His eyes`,
+
+                telugu:
+`నేను ప్రత్యేకమైనవాడిని
+చాలా ప్రత్యేకమైనవాడిని
+నాలాంటి వారు ఎవరూ లేరు
+దేవుడు నన్ను సృష్టించాడు
+దేవుడు నన్ను ప్రేమిస్తున్నాడు
+ఆయన దృష్టిలో నేను ప్రత్యేకమైనవాడిని`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "This Little Light of Mine",
+
+                english:
+`This little light of mine
+I'm gonna let it shine
+This little light of mine
+I'm gonna let it shine`,
+
+                telugu:
+`నా చిన్న వెలుగు
+ప్రకాశింపజేస్తాను
+నా చిన్న వెలుగు
+ప్రకాశింపజేస్తాను`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "He's Got the Whole World",
+
+                english:
+`He's got the whole world in His hands
+He's got the whole world in His hands
+He's got the whole world in His hands`,
+
+                telugu:
+`లోకమంతా ఆయన చేతిలో ఉంది
+లోకమంతా ఆయన చేతిలో ఉంది
+లోకమంతా ఆయన చేతిలో ఉంది`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "Father Abraham",
+
+                english:
+`Father Abraham had many sons
+Many sons had Father Abraham
+I am one of them
+And so are you
+So let's all praise the Lord`,
+
+                telugu:
+`తండ్రి అబ్రాహాముకు అనేక మంది కుమారులు
+అనేక మంది కుమారులు అబ్రాహాముకు ఉన్నారు
+నేను వారిలో ఒకడిని
+నీవు కూడా ఒకడివి
+కాబట్టి ప్రభువును స్తుతిద్దాం`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "If You're Happy and You Know It",
+
+                english:
+`If you're happy and you know it
+Clap your hands
+If you're happy and you know it
+Clap your hands`,
+
+                telugu:
+`నీవు సంతోషంగా ఉంటే
+చప్పట్లు కొట్టు
+నీవు సంతోషంగా ఉంటే
+చప్పట్లు కొట్టు`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "My God Is So Big",
+
+                english:
+`My God is so big
+So strong and so mighty
+There's nothing my God cannot do`,
+
+                telugu:
+`నా దేవుడు చాలా గొప్పవాడు
+బలవంతుడు మరియు శక్తిమంతుడు
+నా దేవుడు చేయలేనిది ఏదీ లేదు`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "Jesus Loves the Little Children",
+
+                english:
+`Jesus loves the little children
+All the children of the world
+Red and yellow
+Black and white
+They are precious in His sight`,
+
+                telugu:
+`యేసు చిన్న పిల్లలను ప్రేమిస్తాడు
+లోకంలోని పిల్లలందరినీ ప్రేమిస్తాడు
+అందరూ ఆయన దృష్టిలో
+అమూల్యమైనవారు`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "God Is So Good",
+
+                english:
+`God is so good
+God is so good
+God is so good
+He's so good to me`,
+
+                telugu:
+`దేవుడు ఎంతో మంచివాడు
+దేవుడు ఎంతో మంచివాడు
+దేవుడు ఎంతో మంచివాడు
+నాకు ఎంతో మంచివాడు`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "Give Thanks",
+
+                english:
+`Give thanks to the Lord
+For He is good
+His love endures forever`,
+
+                telugu:
+`ప్రభువుకు కృతజ్ఞతలు చెల్లించండి
+ఆయన మంచివాడు
+ఆయన ప్రేమ శాశ్వతమైనది`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "I Have Decided to Follow Jesus",
+
+                english:
+`I have decided to follow Jesus
+No turning back
+No turning back`,
+
+                telugu:
+`యేసును అనుసరించాలని నిర్ణయించుకున్నాను
+వెనుదిరగను
+వెనుదిరగను`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "Amazing Grace",
+
+                english:
+`Amazing grace, how sweet the sound
+That saved a soul like me
+I once was lost
+But now am found`,
+
+                telugu:
+`అద్భుతమైన కృప
+నా వంటి పాపిని రక్షించింది
+ఒకప్పుడు నేను తప్పిపోయాను
+ఇప్పుడు కనుగొనబడ్డాను`,
+
+                youtube: "https://www.youtube.com/"
+            }
+
+        ];
+
+
+        /* =========================
+           ADD SONGS TO DROPDOWN
+        ========================= */
+
+        const songSelect =
+            document.getElementById("songSelect");
+
+
+        songs.forEach((song, index) => {
+
+            const option =
+                document.createElement("option");
+
+            option.value = index;
+
+            option.textContent =
+                song.title;
+
+            songSelect.appendChild(option);
+
+        });
+
+
+        /* =========================
+           SELECT SONG
+        ========================= */
+
+        function selectSong() {
+
+            const index =
+                songSelect.value;
+
+
+            if (index === "") {
+
+                document.getElementById(
+                    "songContainer"
+                ).innerHTML = "";
+
+                document.getElementById(
+                    "lyrics"
+                ).style.display = "none";
+
+                return;
+            }
+
+
+            const song =
+                songs[index];
+
+
+            document.getElementById(
+                "songContainer"
+            ).innerHTML = `
+
+                <div class="song">
+
+                    <h2>
+                        🎵 ${song.title}
+                    </h2>
+
+                    <p>
+                        English & Telugu Song
+                    </p>
+
+                    <br>
+
+                    <button
+                        onclick="showLyrics(${index})">
+
+                        📖 View Lyrics
+
+                    </button>
+
+
+                    <button
+                        onclick="openYouTube(${index})">
+
+                        ▶️ YouTube
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            document.getElementById(
+                "lyrics"
+            ).style.display = "none";
+
+        }
+
+
+        /* =========================
+           SHOW LYRICS
+        ========================= */
+
+        function showLyrics(index) {
+
+            const song =
+                songs[index];
+
+
+            const lyrics =
+                document.getElementById("lyrics");
+
+
+            lyrics.style.display = "block";
+
+
+            lyrics.innerHTML = `
+
+                <h3>
+                    🎵 ${song.title}
+                </h3>
+
+
+                <h3>
+                    🇬🇧 English
+                </h3>
+
+                <p>
+                    ${song.english.replace(/\n/g, "<br>")}
+                </p>
+
+
+                <br>
+
+
+                <h3>
+                    🇮🇳 Telugu
+                </h3>
+
+                <p>
+                    ${song.telugu.replace(/\n/g, "<br>")}
+                </p>
+
+            `;
+
+        }
+
+
+        /* =========================
+           OPEN YOUTUBE
+        ========================= */
+
+        function openYouTube(index) {
+
+            const song =
+                songs[index];
+
+
+            window.open(
+                song.youtube,
+                "_blank"
+            );
+
+        }
+
+
+        /* =========================
+           GO HOME
+        ========================= */
+
+        function goHome() {
+
+            window.location.href =
+                "index.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
