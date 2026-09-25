@@ -2,214 +2,105 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sunday School Songs</title>
 
-
     <style>
-
-        /* =========================
-           GENERAL
-        ========================= */
-
         body {
             font-family: Arial, sans-serif;
-
             background-color: #fff4d6;
-
             text-align: center;
-
             padding: 30px;
         }
-
-
-        /* =========================
-           TITLE
-        ========================= */
 
         h1 {
             color: #ff6b6b;
-
             margin-bottom: 30px;
         }
 
-
-        /* =========================
-           SONG SELECT BOX
-        ========================= */
-
         .song-box {
-
             background-color: white;
-
             width: 500px;
-
             max-width: 90%;
-
             margin: 20px auto;
-
             padding: 30px;
-
             border-radius: 20px;
-
             box-shadow: 0 5px 15px #ccc;
         }
 
-
         select {
-
             width: 90%;
-
             padding: 14px;
-
             border: 2px solid #ff8a65;
-
             border-radius: 10px;
-
             font-size: 17px;
-
             margin-bottom: 20px;
         }
 
-
-        /* =========================
-           SONG INFORMATION
-        ========================= */
-
         .song {
-
             background-color: #fff;
-
             width: 500px;
-
             max-width: 90%;
-
             margin: 30px auto;
-
             padding: 25px;
-
             border-radius: 20px;
-
             box-shadow: 0 5px 15px #ccc;
         }
 
-
         .song h2 {
-
             color: #ff8a65;
-
             margin-bottom: 15px;
         }
 
-
-        /* =========================
-           BUTTONS
-        ========================= */
-
         button {
-
             background-color: #ff6b6b;
-
             color: white;
-
             border: none;
-
             padding: 12px 18px;
-
             margin: 5px;
-
             border-radius: 20px;
-
             cursor: pointer;
-
             font-weight: bold;
         }
 
-
         button:hover {
-
             transform: scale(1.05);
         }
 
-
-        /* =========================
-           LYRICS
-        ========================= */
-
         #lyrics {
-
             display: none;
-
             background-color: white;
-
             max-width: 600px;
-
             margin: 20px auto;
-
             padding: 25px;
-
             border-radius: 20px;
-
             box-shadow: 0 5px 15px #ccc;
-
             text-align: left;
-
             line-height: 1.8;
         }
 
-
         #lyrics h3 {
-
             color: #ff8a65;
-
             text-align: center;
         }
 
-
-        /* =========================
-           HOME BUTTON
-        ========================= */
-
         .home-button {
-
             margin-top: 20px;
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
-    <!-- =========================
-         TITLE
-    ========================= -->
-
-    <h1>
-        🎵 Sunday School Songs 🎵
-    </h1>
-
-
-    <!-- =========================
-         SONG SELECTION
-    ========================= -->
+    <h1>🎵 Sunday School Songs 🎵</h1>
 
     <div class="song-box">
 
-        <h2>
-            Select a Song 🎶
-        </h2>
+        <h2>Select a Song 🎶</h2>
 
-
-        <select id="songSelect"
-                onchange="selectSong()">
+        <select id="songSelect" onchange="selectSong()">
 
             <option value="">
                 -- Select a Song --
@@ -219,24 +110,9 @@
 
     </div>
 
-
-    <!-- =========================
-         SELECTED SONG
-    ========================= -->
-
     <div id="songContainer"></div>
 
-
-    <!-- =========================
-         LYRICS
-    ========================= -->
-
     <div id="lyrics"></div>
-
-
-    <!-- =========================
-         BACK HOME
-    ========================= -->
 
     <div class="home-button">
 
@@ -247,241 +123,333 @@
     </div>
 
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
-
     <script>
-
-
-        /* =========================
-           SONG DATA
-        ========================= */
 
         const songs = [
 
             {
-                title: "Jesus Loves Me",
+                title: "బలే బలే సంసోను బలమైన సంసోను",
 
-                english:
-`Jesus loves me, this I know
-For the Bible tells me so
-Little ones to Him belong
-They are weak but He is strong`,
+                telugu: `బలే బలే సంసోను బలమైన సంసోను (×2)
+కండలు తిరిగిన గొప్ప మనిషి బలమైన సంసోను (×2)
 
-                telugu:
-`యేసు నన్ను ప్రేమించును
-బైబిల్ చెప్పుచున్నది
-చిన్నవారు ఆయనవారు
-ఆయన బలవంతుడు`,
+1. దవడ ఎముకతో వెయ్యి మందిని
+ఫిలిష్తీయులను చంపెను చిత్తు చేశాను (×2)
 
-                youtube: "https://www.youtube.com/"
-            },
+150 నక్కలకు తోకలు ముడివేసేను
+సింహపు నోటిని రెండుగా చీల్చెను (×2)
 
-
-            {
-                title: "I Am Special Very Special",
-
-                english:
-`I am special
-Very special
-There is nobody else like me
-God made me
-God loves me
-I am special in His eyes`,
-
-                telugu:
-`నేను ప్రత్యేకమైనవాడిని
-చాలా ప్రత్యేకమైనవాడిని
-నాలాంటి వారు ఎవరూ లేరు
-దేవుడు నన్ను సృష్టించాడు
-దేవుడు నన్ను ప్రేమిస్తున్నాడు
-ఆయన దృష్టిలో నేను ప్రత్యేకమైనవాడిని`,
+దేవుని బలమును బహుగా పొందెను
+శత్రువుల కంటికి భయంకరుడు ఆయేను (×2)`,
 
                 youtube: "https://www.youtube.com/"
             },
 
 
             {
-                title: "This Little Light of Mine",
+                title: "అమెరికా వెళ్లాలంటే — ఏరోప్లేన్ లో వెళ్లాలి",
 
-                english:
-`This little light of mine
-I'm gonna let it shine
-This little light of mine
-I'm gonna let it shine`,
+                telugu: `అమెరికా వెళ్లాలంటే — ఏరోప్లేన్ లో వెళ్లాలి
+అండమాన్ వెళ్లాలంటే — షిప్ లోనే వెళ్లాలి
+ఇండియా వెళ్లాలంటే — ట్రైన్ లోనే వెళ్ళాలి
 
-                telugu:
-`నా చిన్న వెలుగు
-ప్రకాశింపజేస్తాను
-నా చిన్న వెలుగు
-ప్రకాశింపజేస్తాను`,
+పరలోకం వెళ్లాలంటే…
+నీవు పరలోకం వెళ్లాలంటే…
 
-                youtube: "https://www.youtube.com/"
-            },
+ఒక్కటే మార్గం… మార్గం!
+ఆ మార్గమే — యేసయ్య! ✝️
 
-
-            {
-                title: "He's Got the Whole World",
-
-                english:
-`He's got the whole world in His hands
-He's got the whole world in His hands
-He's got the whole world in His hands`,
-
-                telugu:
-`లోకమంతా ఆయన చేతిలో ఉంది
-లోకమంతా ఆయన చేతిలో ఉంది
-లోకమంతా ఆయన చేతిలో ఉంది`,
+ఒక్కటే మార్గం… మార్గం!
+ఆ మార్గమే — యేసయ్య!`,
 
                 youtube: "https://www.youtube.com/"
             },
 
 
             {
-                title: "Father Abraham",
+                title: "యేసుని ప్రేమ బహు కమ్మనైనది",
 
-                english:
-`Father Abraham had many sons
-Many sons had Father Abraham
-I am one of them
-And so are you
-So let's all praise the Lord`,
+                telugu: `యేసుని ప్రేమ బహు కమ్మనైనది
+జీవాహారం మధురాతి మధురమే
 
-                telugu:
-`తండ్రి అబ్రాహాముకు అనేక మంది కుమారులు
-అనేక మంది కుమారులు అబ్రాహాముకు ఉన్నారు
-నేను వారిలో ఒకడిని
-నీవు కూడా ఒకడివి
-కాబట్టి ప్రభువును స్తుతిద్దాం`,
+భలే భలే గుందిలే
+తెనేకంటే తియ్యగా
 
-                youtube: "https://www.youtube.com/"
-            },
+1. ఐదు రొట్టెలు రెండు చేపలు
+ఐదువేలు తిన్నారు
+ఆహా ఓహో అన్నారు /భలే/
 
-
-            {
-                title: "If You're Happy and You Know It",
-
-                english:
-`If you're happy and you know it
-Clap your hands
-If you're happy and you know it
-Clap your hands`,
-
-                telugu:
-`నీవు సంతోషంగా ఉంటే
-చప్పట్లు కొట్టు
-నీవు సంతోషంగా ఉంటే
-చప్పట్లు కొట్టు`,
+2. కానా పెళ్ళిలో నీళ్ళను మార్చాడు
+ద్రాక్షా రసమును తాగి
+ఆహా ఓహో అన్నారు
+/భలే/`,
 
                 youtube: "https://www.youtube.com/"
             },
 
 
             {
-                title: "My God Is So Big",
+                title: "సునో సునో సుంకరి ప్రార్థన",
 
-                english:
-`My God is so big
-So strong and so mighty
-There's nothing my God cannot do`,
+                telugu: `సునో సునో సుంకరి ప్రార్థన
+దేఖో దేఖో దీన ప్రార్థన
+తగ్గించుకున్న ఈ ప్రార్థన
+దేవునికి ఇష్టమైన ప్రార్థన
 
-                telugu:
-`నా దేవుడు చాలా గొప్పవాడు
-బలవంతుడు మరియు శక్తిమంతుడు
-నా దేవుడు చేయలేనిది ఏదీ లేదు`,
+కన్నులెత్తి ఆకాశంబు వైపు
+చూడ ధైర్యము చాలలేదు
 
-                youtube: "https://www.youtube.com/"
-            },
-
-
-            {
-                title: "Jesus Loves the Little Children",
-
-                english:
-`Jesus loves the little children
-All the children of the world
-Red and yellow
-Black and white
-They are precious in His sight`,
-
-                telugu:
-`యేసు చిన్న పిల్లలను ప్రేమిస్తాడు
-లోకంలోని పిల్లలందరినీ ప్రేమిస్తాడు
-అందరూ ఆయన దృష్టిలో
-అమూల్యమైనవారు`,
+పాపినైన నన్ను కనికరింపుమని
+సుంకరి ప్రార్థించెను`,
 
                 youtube: "https://www.youtube.com/"
             },
 
 
             {
-                title: "God Is So Good",
+                title: "ఓ దేవా మన్నే తీసి",
 
-                english:
-`God is so good
-God is so good
-God is so good
-He's so good to me`,
+                telugu: `ఓ దేవా మన్నే తీసి
+చక్కనైన నిన్నే చూసి
+ముచ్చటగా నన్నే చేసావా...
 
-                telugu:
-`దేవుడు ఎంతో మంచివాడు
-దేవుడు ఎంతో మంచివాడు
-దేవుడు ఎంతో మంచివాడు
-నాకు ఎంతో మంచివాడు`,
+నీ రూపం నా కిచ్చుటయే
+గొప్పగా ఉన్నదయ
 
-                youtube: "https://www.youtube.com/"
-            },
+జీవాత్మా నాలో నింపగానే
+జీవిగా నైతినయ...
 
+భల్లే... భల్లే... భలేగా చేసావు
+భల్లే... భల్లే... భలేగా
 
-            {
-                title: "Give Thanks",
+హల్లెలూయ నీకే చేస్తాను
+భల్లే... భల్లే... భలేగా
 
-                english:
-`Give thanks to the Lord
-For He is good
-His love endures forever`,
-
-                telugu:
-`ప్రభువుకు కృతజ్ఞతలు చెల్లించండి
-ఆయన మంచివాడు
-ఆయన ప్రేమ శాశ్వతమైనది`,
+హల్లెలూయ నీకే చేస్తాను`,
 
                 youtube: "https://www.youtube.com/"
             },
 
 
             {
-                title: "I Have Decided to Follow Jesus",
+                title: "దిన్నా దిన్ దిన్న తానానా",
 
-                english:
-`I have decided to follow Jesus
-No turning back
-No turning back`,
+                telugu: `దిన్నా దిన్ దిన్న తానానా (2)
 
-                telugu:
-`యేసును అనుసరించాలని నిర్ణయించుకున్నాను
-వెనుదిరగను
-వెనుదిరగను`,
+అడ్డంకులు వచ్చెనని
+స్నేహమాగిపోలేదు
+
+దిన్నా దిన్ దిన్న తానానా
+
+పక్షవాతి రోగియని
+చేయి విడువలేదు
+
+దిన్నా దిన్ దిన్న తానానా
+
+భలే భలేగుంది
+భలేగుంది caring friendship
+
+నాకు లైకు ఆయే
+లైకు ఆయే
+సూరరో friendship (2)
+
+1. ఇంటి మీదికెక్కారు one by one
+One by one
+
+పెంకులు విప్పారు one by one
+One by one
+
+పరుపును త్రాళ్లతో కట్టారు
+యేసు ఎదుట దింపారు (2)
+
+భలే`,
 
                 youtube: "https://www.youtube.com/"
             },
 
 
             {
-                title: "Amazing Grace",
+                title: "దారి చూపిస్తాడురా... దేవుడు దారి చూపిస్తాడురా",
 
-                english:
-`Amazing grace, how sweet the sound
-That saved a soul like me
-I once was lost
-But now am found`,
+                telugu: `దారి చూపిస్తాడురా...
+దేవుడు దారి చూపిస్తాడురా (2)
 
-                telugu:
-`అద్భుతమైన కృప
-నా వంటి పాపిని రక్షించింది
-ఒకప్పుడు నేను తప్పిపోయాను
-ఇప్పుడు కనుగొనబడ్డాను`,
+ముందుకి, వెనకకి,
+లెఫ్టుకి, రైటుకి,
+దారి చూపిస్తాడురా (2)
+
+అరె...రెయ్...
+దారి చూపిస్తాడురా
+దేవుడు దారి చూపిస్తాడురా
+
+1. ముందు సముద్రమునను
+వెనుక శత్రువులునను (2)
+
+సముద్రాన్ని... సముద్రాన్ని...
+ఏంటి... సముద్రాన్ని తెరిచాడురా...
+
+దేవుడు శత్రువును ఓడించేరా..
+అరె.. (2) దారి
+
+2. తిండి లేకపోయినా
+నూనె ఖతం అయినను (2)
+
+అద్భుతముగా.. ఆహా..
+అద్భుతముగా.. ఓహో...
+
+అద్భుతముగా రొట్టెలయెరా..
+ఆ రొట్టెలు తక్కువ ఎప్పుడు కాలేదురా..
+
+అరె (2) దారి
+
+3. సింహాల బోనులో
+దానియేలును వేసినా (2)
+
+సింహాల అమ్మో!
+సింహాల బాబోయ్!
+
+సింహాల నోరు మూసెరా
+దేవుడు
+
+రాజు సైతం షాక్ అయ్యెరా (2) దారి`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "ఇశ్రాయేలు చిన్నది ఎంతో చక్కగా ఉన్నది",
+
+                telugu: `ఇశ్రాయేలు చిన్నది
+ఎంతో చక్కగా ఉన్నది
+
+చెరగోనిపోయినా వారి ఇంట
+కొరత తీర్చ గోరి ఉన్నది
+
+కోపముంచకా వారి పైన
+శుభవార్త చెప్పి ఉన్నది
+
+1. నమ్మినా నయమాను వెళ్ళాడు
+దైవజనుని మాటకు కోపగించాడు
+
+పని వారి మాటకు లోబడియున్నాడు
+యొర్దానులో ఏడుమార్లు మునిగాడు
+
+కుష్టి పోయి బాగుపడి
+దేవుని నమ్మి వెళ్ళాడు
+
+2. చిన్ని చిన్ని తమ్ముడా
+చిట్టి చిట్టి చెల్లెలా
+
+ఇశ్రాయేలు చిన్నదాని వలెనే
+యేసు వార్త చాటి చెప్పవా`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "కలిసి వచ్చిరి నడుం కట్టిరి",
+
+                telugu: `కలిసి వచ్చిరి నడుం కట్టిరి
+నెహేమ్య వెంట నడిచి వచ్చిరి (2)
+
+గోడ కట్టువారు
+హోయిరబ్బ హోయిరబ్బ
+
+బండలెత్తు వారు
+హోయిరబ్బ హోయిరబ్బ (2)
+
+భలె భలె భలె హోయిరబ్బ
+కత్తి పట్టి గోడ కట్టినారబ్బ (2)
+
+యెహోవ మన పక్షమున
+యుద్ధము చేయుననుచు (2)
+
+పాడైపోయిన యెరుషలేమును
+ప్రారంభించి కట్టెను నెహేమ్యా (2)`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "మేడి చెట్టు పైకి ఎవ్వరెక్కారు?",
+
+                telugu: `మేడి చెట్టు పైకి ఎవ్వరెక్కారు?
+మేడి చెట్టు పైకి ఎందుకెక్కారు?
+
+మేడి చెట్టు పైకి జక్కయ్యెక్కాడు
+యేసు ఎవరో చూడాలని చెట్టు ఎక్కాడు.
+
+2. మేడి చెట్టు కింద ఎవ్వరాగారు?
+చెట్టు దిగిన జక్కయ్య ఏమి చేసాడు?
+
+మేడి చెట్టు క్రింద రక్షకుడాగాడు
+యేసును జక్కయ్య ఇంట చేర్చుకున్నాడు.
+
+ఓ తమ్ముడా! ఓ చెల్లెలా!
+యేసుని నీవు చేర్చుకుంటావా?
+నీ హృదయములో స్థానమిస్తావా?`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "అబేద్నగో, షడ్రకు, మెషెకు",
+
+                telugu: `అబేద్నగో, షడ్రకు, మెషెకు
+వచ్చిపడెనే పెద్ద చిక్కు (2)
+
+రాజు ప్రతిమకు మ్రొక్కమంటూ
+సాతాను ప్లే చేసె ట్రిక్కు (2)
+
+అబేద్నగో, షడ్రకు, మెషెకు
+వచ్చిపడెనే పెద్ద చిక్కు
+
+1. ఏడంతలు వేడిని పెంచిన
+అగ్నిలో మమ్మును కాల్చిన (2)
+
+నీ ప్రతిమంటే మాకులేదు లెక్క
+మ్రొక్కమంటు చెప్పినారు ఎంచక్కా (2)
+
+అబేద్నగో, షడ్రకు, మెషెకు
+సాతానుకు పెట్టినారు చెక్కు (2)`,
+
+                youtube: "https://www.youtube.com/"
+            },
+
+
+            {
+                title: "చిట్టి పొట్టి పాపను నేను",
+
+                telugu: `చిట్టి పొట్టి పాపను నేను
+చిన్నారి పాపను నేను (2)
+
+యేసయ్యా నిన్ను చూడాలని
+నాకున్న చిన్ని ఆశ
+
+యేసయ్యా నిన్ను చేరాలని
+నాకున్న చిన్ని ఆశ
+
+||చిట్టి||
+
+నీ సన్నిధిలోనే ఉండాలని
+నాకున్న చిన్ని ఆశ
+
+నీ సన్నిధిలో పాట పాడాలని
+నాకున్న చిన్ని ఆశ
+
+||చిట్టి||
+
+నీకై నేను జీవించాలని
+నాకున్న చిన్ని ఆశ
+
+నిన్నే నేను సేవించాలని
+నాకున్న చిన్ని ఆశ
+
+||చిట్టి||`,
 
                 youtube: "https://www.youtube.com/"
             }
@@ -489,60 +457,38 @@ But now am found`,
         ];
 
 
-        /* =========================
-           ADD SONGS TO DROPDOWN
-        ========================= */
-
-        const songSelect =
-            document.getElementById("songSelect");
+        const songSelect = document.getElementById("songSelect");
 
 
         songs.forEach((song, index) => {
 
-            const option =
-                document.createElement("option");
+            const option = document.createElement("option");
 
             option.value = index;
 
-            option.textContent =
-                song.title;
+            option.textContent = song.title;
 
             songSelect.appendChild(option);
 
         });
 
 
-        /* =========================
-           SELECT SONG
-        ========================= */
-
         function selectSong() {
 
-            const index =
-                songSelect.value;
-
+            const index = songSelect.value;
 
             if (index === "") {
 
-                document.getElementById(
-                    "songContainer"
-                ).innerHTML = "";
+                document.getElementById("songContainer").innerHTML = "";
 
-                document.getElementById(
-                    "lyrics"
-                ).style.display = "none";
+                document.getElementById("lyrics").style.display = "none";
 
                 return;
             }
 
+            const song = songs[index];
 
-            const song =
-                songs[index];
-
-
-            document.getElementById(
-                "songContainer"
-            ).innerHTML = `
+            document.getElementById("songContainer").innerHTML = `
 
                 <div class="song">
 
@@ -551,73 +497,39 @@ But now am found`,
                     </h2>
 
                     <p>
-                        English & Telugu Song
+                        Telugu Song
                     </p>
 
                     <br>
 
-                    <button
-                        onclick="showLyrics(${index})">
-
+                    <button onclick="showLyrics(${index})">
                         📖 View Lyrics
-
                     </button>
 
-
-                    <button
-                        onclick="openYouTube(${index})">
-
+                    <button onclick="openYouTube(${index})">
                         ▶️ YouTube
-
                     </button>
 
                 </div>
-
             `;
 
-
-            document.getElementById(
-                "lyrics"
-            ).style.display = "none";
-
+            document.getElementById("lyrics").style.display = "none";
         }
 
 
-        /* =========================
-           SHOW LYRICS
-        ========================= */
-
         function showLyrics(index) {
 
-            const song =
-                songs[index];
+            const song = songs[index];
 
-
-            const lyrics =
-                document.getElementById("lyrics");
-
+            const lyrics = document.getElementById("lyrics");
 
             lyrics.style.display = "block";
-
 
             lyrics.innerHTML = `
 
                 <h3>
                     🎵 ${song.title}
                 </h3>
-
-
-                <h3>
-                    🇬🇧 English
-                </h3>
-
-                <p>
-                    ${song.english.replace(/\n/g, "<br>")}
-                </p>
-
-
-                <br>
-
 
                 <h3>
                     🇮🇳 Telugu
@@ -628,37 +540,20 @@ But now am found`,
                 </p>
 
             `;
-
         }
 
-
-        /* =========================
-           OPEN YOUTUBE
-        ========================= */
 
         function openYouTube(index) {
 
-            const song =
-                songs[index];
+            const song = songs[index];
 
-
-            window.open(
-                song.youtube,
-                "_blank"
-            );
-
+            window.open(song.youtube, "_blank");
         }
 
 
-        /* =========================
-           GO HOME
-        ========================= */
-
         function goHome() {
 
-            window.location.href =
-                "index.html";
-
+            window.location.href = "index.html";
         }
 
     </script>
