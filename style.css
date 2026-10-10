@@ -31,8 +31,10 @@ header {
 }
 
 .logo {
-    font-size: 25px;
-    font-weight: bold;
+    width:150px;
+    height:150px;
+   boder-radius:50%;
+   
 }
 
 nav {
